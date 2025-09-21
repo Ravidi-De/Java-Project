@@ -39,7 +39,7 @@ public class Register extends HttpServlet {
 		try {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Railway","root","Sachin-123");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Railway","root","1234");
 			PreparedStatement pst = con.prepareStatement("Insert into users (uname,upassword,uemail,uPnum) values (?,?,?,?)"); 
 			
 			pst.setString(1, uname);

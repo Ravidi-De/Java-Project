@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			//connect the database
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Railway","root","Sachin-123");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Railway","root","1234");
 			
 			//getting data from the login.jsp
 			String uname = request.getParameter("username");
