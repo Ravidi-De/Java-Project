@@ -26,10 +26,7 @@ public class LOGINADMIN extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-		response.sendRedirect("Admin/admin.jsp");
-		
 		try {
-			PrintWriter out = response.getWriter();
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			//connect the database
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Railway","root","1234");
@@ -38,35 +35,46 @@ public class LOGINADMIN extends HttpServlet {
 			String uname = request.getParameter("adminname");
 			String pwd = request.getParameter("adminpassword");
 			
-			System.out.print("ddd"+uname+pwd);
+			System.out.println("Admin login attempt: " + uname);
 			
-				PreparedStatement psd = con.prepareStatement("select anme from admin where anme = ? and apassword = ?");
-				psd.setString(1, uname);
-				psd.setString(2, pwd);
+			PreparedStatement psd = con.prepareStatement("select anme from admin where anme = ? and apassword = ?");
+			psd.setString(1, uname);
+			psd.setString(2, pwd);
+			
+			ResultSet rs = psd.executeQuery();
+			
+			if(rs.next()) {
+				// Authentication successful
+				//starting a session
+				HttpSession session = request.getSession();
+				session.setAttribute("user_name", uname);
 				
-				ResultSet rs = psd.executeQuery();
+				// Redirect to admin page
+				response.sendRedirect("Admin/admin.jsp");
 				
-				if(rs.next()) {
-					response.sendRedirect("Admin/admin.jsp");
-					
-					//starting a session
-					HttpSession session = request.getSession();
-					session.setAttribute("user_name", uname);
+			} else {
+				// Authentication failed
+				PrintWriter out = response.getWriter();
+				response.setContentType("text/html");
+				out.println("<!DOCTYPE html>");
+				out.println("<html><head><title>Login Failed</title></head><body>");
+				out.println("<h2 style='color:red;'>LOGIN FAILED!</h2>");
+				out.println("<p>Invalid username or password.</p>");
+				out.println("<a href='Admin/AdminLogin.jsp'>Try Again</a>");
+				out.println("</body></html>");
+			}
 			
-				}else {
-					out.println("<font color=red size =18 >LOGIN FAILD !! <br>");
-					out.println("<a href=login.jsp ></a>");
-					response.sendRedirect("SignUp/login.jsp");
-				}
+			// Close database resources
+			rs.close();
+			psd.close();
+			con.close();
 			
-	
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		
+			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database driver error");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database connection error");
 		}}
 
 }
