@@ -15,11 +15,11 @@ public class DbConnection {
 	 public Connection getConnection() {
 		 
 		 try {
-			Connection con = DriverManager.getConnection(url,db_uname,db_password);
-			 System.out.println("Database Connection Sucessfull");//only a massage
-			 
 			 Class.forName("com.mysql.cj.jdbc.Driver");
 			 System.out.println("Driver connection Sucessfull");//only a massage
+			 
+			Connection con = DriverManager.getConnection(url,db_uname,db_password);
+			 System.out.println("Database Connection Sucessfull");//only a massage
 			 
 			 return con;
 		} catch (ClassNotFoundException e) {

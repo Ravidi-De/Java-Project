@@ -46,7 +46,7 @@
                                 </a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="../../Curent_sv" class="text-decoration-none">Admin Management</a>
+                                <a href="/Curent_sv" class="text-decoration-none">Admin Management</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">Add Admin</li>
                         </ol>
@@ -222,7 +222,7 @@
 
                                     <!-- Form Actions -->
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a href="../../Curent_sv" class="railway-btn railway-btn-secondary">
+                                        <a href="/Curent_sv" class="railway-btn railway-btn-secondary">
                                             <i class="fas fa-arrow-left me-2"></i>Back to Admin List
                                         </a>
                                         

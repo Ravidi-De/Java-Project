@@ -13,11 +13,11 @@ public class DbConnection {
 	public Connection getConnection() {
 		
 		try {
-			Connection con = DriverManager.getConnection(url,db_uname,db_password);
-			System.out.println("Connection Sucessfull:// UpdateAdmin //");
-			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("Driver loaded : // UpdateAdmin //");
+			
+			Connection con = DriverManager.getConnection(url,db_uname,db_password);
+			System.out.println("Connection Sucessfull:// UpdateAdmin //");
 			
 			return con;
 		} catch (ClassNotFoundException e) {

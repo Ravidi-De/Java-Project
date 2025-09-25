@@ -347,7 +347,7 @@
                 const scrolled = window.pageYOffset;
                 const heroBackground = document.querySelector('.hero-background');
                 if (heroBackground) {
-                    heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
+                    heroBackground.style.transform = 'translateY(' + (scrolled * 0.5) + 'px)';
                 }
             });
         });

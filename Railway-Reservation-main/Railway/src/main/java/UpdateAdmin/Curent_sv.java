@@ -27,7 +27,7 @@ public class Curent_sv extends HttpServlet {
 		
 		request.setAttribute("current_emp", new Current_dao().selectAll());
 		
-		RequestDispatcher rd = request.getRequestDispatcher("Admin/updateAdmin/CurrentAdmins.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/Admin/updateAdmin/CurrentAdmins.jsp");
 		rd.forward(request, response);
 	}
 
