@@ -1,0 +1,402 @@
+/* ===================================================================
+   RAILWAY RESERVATION SYSTEM - UNIFIED THEME
+   Modern, Professional Design System
+   =================================================================== */
+
+:root {
+  /* Railway Brand Colors */
+  --railway-primary: #1e40af;      /* Professional blue */
+  --railway-secondary: #64748b;    /* Slate gray */
+  --railway-accent: #0ea5e9;       /* Sky blue */
+  --railway-success: #22c55e;      /* Green */
+  --railway-warning: #f59e0b;      /* Amber */
+  --railway-danger: #ef4444;       /* Red */
+  --railway-dark: #1e293b;         /* Dark slate */
+  --railway-light: #f8fafc;        /* Light slate */
+  --railway-white: #ffffff;        /* Pure white */
+  
+  /* Typography */
+  --railway-font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --railway-font-secondary: 'Roboto', sans-serif;
+  
+  /* Spacing */
+  --railway-spacing-xs: 0.25rem;
+  --railway-spacing-sm: 0.5rem;
+  --railway-spacing-md: 1rem;
+  --railway-spacing-lg: 2rem;
+  --railway-spacing-xl: 3rem;
+  
+  /* Border Radius */
+  --railway-radius-sm: 6px;
+  --railway-radius-md: 12px;
+  --railway-radius-lg: 16px;
+  
+  /* Shadows */
+  --railway-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --railway-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --railway-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* ===================================================================
+   GLOBAL STYLES
+   =================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--railway-font-primary);
+  background-color: var(--railway-light);
+  color: var(--railway-dark);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===================================================================
+   UTILITY CLASSES
+   =================================================================== */
+
+.text-railway-primary { color: var(--railway-primary) !important; }
+.text-railway-secondary { color: var(--railway-secondary) !important; }
+.text-railway-accent { color: var(--railway-accent) !important; }
+.text-railway-success { color: var(--railway-success) !important; }
+.text-railway-warning { color: var(--railway-warning) !important; }
+.text-railway-danger { color: var(--railway-danger) !important; }
+.text-railway-dark { color: var(--railway-dark) !important; }
+
+.bg-railway-primary { background-color: var(--railway-primary) !important; }
+.bg-railway-secondary { background-color: var(--railway-secondary) !important; }
+.bg-railway-accent { background-color: var(--railway-accent) !important; }
+.bg-railway-success { background-color: var(--railway-success) !important; }
+.bg-railway-warning { background-color: var(--railway-warning) !important; }
+.bg-railway-danger { background-color: var(--railway-danger) !important; }
+.bg-railway-dark { background-color: var(--railway-dark) !important; }
+.bg-railway-light { background-color: var(--railway-light) !important; }
+
+/* ===================================================================
+   COMPONENT STYLES
+   =================================================================== */
+
+/* Railway Cards */
+.railway-card {
+  background: var(--railway-white);
+  border-radius: var(--railway-radius-md);
+  box-shadow: var(--railway-shadow-md);
+  padding: var(--railway-spacing-lg);
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.railway-card:hover {
+  box-shadow: var(--railway-shadow-lg);
+  transform: translateY(-2px);
+}
+
+.railway-card-header {
+  border-bottom: 2px solid var(--railway-light);
+  padding-bottom: var(--railway-spacing-md);
+  margin-bottom: var(--railway-spacing-lg);
+}
+
+.railway-card-title {
+  color: var(--railway-dark);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+/* Railway Buttons */
+.railway-btn {
+  border-radius: var(--railway-radius-sm);
+  font-weight: 500;
+  padding: 12px 24px;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: var(--railway-font-primary);
+}
+
+.railway-btn i {
+  margin-right: var(--railway-spacing-xs);
+}
+
+.railway-btn-primary {
+  background-color: var(--railway-primary);
+  border-color: var(--railway-primary);
+  color: var(--railway-white);
+}
+
+.railway-btn-primary:hover {
+  background-color: #1e3a8a;
+  border-color: #1e3a8a;
+  color: var(--railway-white);
+  transform: translateY(-1px);
+}
+
+.railway-btn-secondary {
+  background-color: var(--railway-secondary);
+  border-color: var(--railway-secondary);
+  color: var(--railway-white);
+}
+
+.railway-btn-secondary:hover {
+  background-color: #475569;
+  border-color: #475569;
+  color: var(--railway-white);
+}
+
+.railway-btn-outline-primary {
+  background-color: transparent;
+  border-color: var(--railway-primary);
+  color: var(--railway-primary);
+}
+
+.railway-btn-outline-primary:hover {
+  background-color: var(--railway-primary);
+  color: var(--railway-white);
+}
+
+.railway-btn-success {
+  background-color: var(--railway-success);
+  border-color: var(--railway-success);
+  color: var(--railway-white);
+}
+
+.railway-btn-danger {
+  background-color: var(--railway-danger);
+  border-color: var(--railway-danger);
+  color: var(--railway-white);
+}
+
+/* Railway Forms */
+.railway-form-control {
+  border: 2px solid #e2e8f0;
+  border-radius: var(--railway-radius-sm);
+  padding: 12px 16px;
+  font-family: var(--railway-font-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.railway-form-control:focus {
+  border-color: var(--railway-primary);
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+  outline: none;
+}
+
+.railway-form-label {
+  font-weight: 500;
+  color: var(--railway-dark);
+  margin-bottom: var(--railway-spacing-sm);
+  display: block;
+}
+
+/* Railway Tables */
+.railway-table {
+  background: var(--railway-white);
+  border-radius: var(--railway-radius-md);
+  overflow: hidden;
+  box-shadow: var(--railway-shadow-md);
+}
+
+.railway-table thead th {
+  background-color: var(--railway-primary);
+  color: var(--railway-white);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  padding: 1rem;
+  border: none;
+}
+
+.railway-table tbody td {
+  padding: 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--railway-light);
+}
+
+.railway-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.railway-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Railway Navbar */
+.railway-navbar {
+  background: linear-gradient(135deg, var(--railway-primary) 0%, var(--railway-accent) 100%);
+  box-shadow: var(--railway-shadow-md);
+  padding: 1rem 0;
+}
+
+.railway-navbar .navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--railway-white) !important;
+}
+
+.railway-navbar .nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.railway-navbar .nav-link:hover {
+  color: var(--railway-white) !important;
+}
+
+/* Railway Sidebar */
+.railway-sidebar {
+  background-color: var(--railway-white);
+  box-shadow: var(--railway-shadow-md);
+  min-height: calc(100vh - 76px);
+  padding: var(--railway-spacing-lg);
+}
+
+.railway-sidebar-header {
+  border-bottom: 2px solid var(--railway-light);
+  padding-bottom: var(--railway-spacing-md);
+  margin-bottom: var(--railway-spacing-lg);
+}
+
+.railway-sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.railway-sidebar-nav li {
+  margin-bottom: var(--railway-spacing-sm);
+}
+
+.railway-sidebar-nav a {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  color: var(--railway-secondary);
+  text-decoration: none;
+  border-radius: var(--railway-radius-sm);
+  transition: all 0.2s ease;
+}
+
+.railway-sidebar-nav a:hover,
+.railway-sidebar-nav a.active {
+  background-color: var(--railway-primary);
+  color: var(--railway-white);
+}
+
+.railway-sidebar-nav a i {
+  margin-right: var(--railway-spacing-sm);
+  width: 20px;
+  text-align: center;
+}
+
+/* Railway Alerts */
+.railway-alert {
+  padding: 1rem 1.5rem;
+  border-radius: var(--railway-radius-sm);
+  border: 1px solid transparent;
+  margin-bottom: var(--railway-spacing-md);
+}
+
+.railway-alert-success {
+  background-color: #f0fdf4;
+  border-color: var(--railway-success);
+  color: #166534;
+}
+
+.railway-alert-danger {
+  background-color: #fef2f2;
+  border-color: var(--railway-danger);
+  color: #991b1b;
+}
+
+.railway-alert-warning {
+  background-color: #fffbeb;
+  border-color: var(--railway-warning);
+  color: #92400e;
+}
+
+/* Railway Footer */
+.railway-footer {
+  background-color: var(--railway-dark);
+  color: var(--railway-white);
+  padding: var(--railway-spacing-xl) 0 var(--railway-spacing-lg) 0;
+  margin-top: auto;
+}
+
+.railway-footer h5 {
+  color: var(--railway-white);
+  font-weight: 600;
+}
+
+.railway-footer p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: var(--railway-spacing-sm);
+}
+
+.railway-footer a {
+  color: var(--railway-accent);
+  text-decoration: none;
+}
+
+.railway-footer a:hover {
+  color: var(--railway-white);
+}
+
+/* ===================================================================
+   RESPONSIVE DESIGN
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .railway-card {
+    padding: var(--railway-spacing-md);
+  }
+  
+  .railway-btn {
+    width: 100%;
+    margin-bottom: var(--railway-spacing-sm);
+  }
+  
+  .railway-sidebar {
+    position: fixed;
+    top: 76px;
+    left: -100%;
+    width: 280px;
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
+  
+  .railway-sidebar.show {
+    left: 0;
+  }
+}
+
+/* ===================================================================
+   ANIMATION CLASSES
+   =================================================================== */
+
+.railway-fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.railway-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
