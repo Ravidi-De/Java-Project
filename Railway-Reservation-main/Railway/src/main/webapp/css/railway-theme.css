@@ -168,25 +168,101 @@ body {
   color: var(--railway-white);
 }
 
+.railway-btn-warning {
+  background-color: var(--railway-warning);
+  border-color: var(--railway-warning);
+  color: var(--railway-white);
+}
+
+.railway-btn-warning:hover {
+  background-color: #d97706;
+  border-color: #d97706;
+  color: var(--railway-white);
+  transform: translateY(-1px);
+}
+
 .railway-btn-danger {
   background-color: var(--railway-danger);
   border-color: var(--railway-danger);
   color: var(--railway-white);
 }
 
+.railway-btn-outline-danger {
+  background-color: transparent;
+  border-color: var(--railway-danger);
+  color: var(--railway-danger);
+}
+
+.railway-btn-outline-danger:hover {
+  background-color: var(--railway-danger);
+  color: var(--railway-white);
+}
+
+.railway-btn-outline-secondary {
+  background-color: transparent;
+  border-color: var(--railway-secondary);
+  color: var(--railway-secondary);
+}
+
+.railway-btn-outline-secondary:hover {
+  background-color: var(--railway-secondary);
+  color: var(--railway-white);
+}
+
+.railway-btn-outline-success {
+  background-color: transparent;
+  border-color: var(--railway-success);
+  color: var(--railway-success);
+}
+
+.railway-btn-outline-success:hover {
+  background-color: var(--railway-success);
+  color: var(--railway-white);
+}
+
+/* Button Sizes */
+.railway-btn-sm {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  border-radius: calc(var(--railway-radius-sm) - 1px);
+}
+
+.railway-btn-lg {
+  padding: 16px 32px;
+  font-size: 1.125rem;
+  border-radius: calc(var(--railway-radius-sm) + 2px);
+}
+
 /* Railway Forms */
-.railway-form-control {
+.railway-form-control,
+.railway-form-input {
   border: 2px solid #e2e8f0;
   border-radius: var(--railway-radius-sm);
   padding: 12px 16px;
   font-family: var(--railway-font-primary);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  font-size: 1rem;
+  background-color: var(--railway-white);
 }
 
-.railway-form-control:focus {
+.railway-form-control:focus,
+.railway-form-input:focus {
   border-color: var(--railway-primary);
   box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
   outline: none;
+}
+
+.railway-form-control.is-valid,
+.railway-form-input.is-valid {
+  border-color: var(--railway-success);
+  background-image: none;
+}
+
+.railway-form-control.is-invalid,
+.railway-form-input.is-invalid {
+  border-color: var(--railway-danger);
+  background-image: none;
 }
 
 .railway-form-label {
@@ -194,6 +270,62 @@ body {
   color: var(--railway-dark);
   margin-bottom: var(--railway-spacing-sm);
   display: block;
+}
+
+.railway-form-feedback {
+  display: none;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--railway-danger);
+}
+
+.railway-form-control.is-invalid ~ .railway-form-feedback,
+.railway-form-input.is-invalid ~ .railway-form-feedback {
+  display: block;
+}
+
+/* Form Actions */
+.form-actions {
+  padding-top: var(--railway-spacing-lg);
+  border-top: 1px solid var(--railway-light);
+}
+
+/* Input Groups */
+.input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
+
+.input-group-text {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--railway-dark);
+  text-align: center;
+  white-space: nowrap;
+  background-color: var(--railway-light);
+  border: 2px solid #e2e8f0;
+  border-radius: var(--railway-radius-sm);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+
+.input-group .railway-form-input,
+.input-group .railway-form-control {
+  position: relative;
+  flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 /* Railway Tables */

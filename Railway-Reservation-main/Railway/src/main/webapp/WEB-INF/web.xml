@@ -33,6 +33,27 @@
     <servlet-class>UpdateAdmin.Del_admin_suv</servlet-class>
   </servlet>
   
+  <!-- Train Management Servlets -->
+  <servlet>
+    <servlet-name>Cur_train_sev</servlet-name>
+    <servlet-class>UpdateTrains.Cur_train_sev</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>InsertTrainServlet</servlet-name>
+    <servlet-class>UpdateTrains.InsertTrainServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>Update_trains_sev</servlet-name>
+    <servlet-class>UpdateTrains.Update_trains_sev</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>Deleter_train_sev</servlet-name>
+    <servlet-class>UpdateTrains.Deleter_train_sev</servlet-class>
+  </servlet>
+  
   <!-- Servlet Mappings -->
   <servlet-mapping>
     <servlet-name>Curent_sv</servlet-name>
@@ -62,6 +83,27 @@
   <servlet-mapping>
     <servlet-name>Del_admin_suv</servlet-name>
     <url-pattern>/Del_admin_suv</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Train Management Servlet Mappings -->
+  <servlet-mapping>
+    <servlet-name>Cur_train_sev</servlet-name>
+    <url-pattern>/Cur_train_sev</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>InsertTrainServlet</servlet-name>
+    <url-pattern>/InsertTrainServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Update_trains_sev</servlet-name>
+    <url-pattern>/Update_trains_sev</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Deleter_train_sev</servlet-name>
+    <url-pattern>/Deleter_train_sev</url-pattern>
   </servlet-mapping>
   
   <welcome-file-list>
