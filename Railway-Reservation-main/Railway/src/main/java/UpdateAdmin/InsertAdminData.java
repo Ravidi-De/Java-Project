@@ -27,26 +27,30 @@ public class InsertAdminData extends DbConnection {
 		//create a object 
 		InsertAdminData iad = new InsertAdminData(Admin_name, Admin_password, Re_password);
 		
+		String query = "INSERT INTO admins(anme,apassword) VALUES (?,?)";
 		
-			String query = "INSERT INTO admins(anme,apassword) VALUES (?,?)";
-			
-			PreparedStatement psd;
-			
-			try {
-				psd = iad.getConnection().prepareStatement(query);
-				
-				psd.setString(1, Admin_name);
-				psd.setString(2, Admin_password);
-				
-				psd.executeUpdate();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
+		PreparedStatement psd;
+		int result = 0;
 		
+		try {
+			psd = iad.getConnection().prepareStatement(query);
+			
+			psd.setString(1, Admin_name);
+			psd.setString(2, Admin_password);
+			
+			result = psd.executeUpdate();
+			System.out.println("Insert result: " + result);
+			
+			psd.close();
+			iad.getConnection().close();
+			
+		} catch (SQLException e) {
+			System.err.println("Error inserting admin data: " + e.getMessage());
+			e.printStackTrace();
+			return 0;
+		}
 		
-		return 0;
+		return result;
 	}
 
 }

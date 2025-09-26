@@ -4,7 +4,6 @@ package UpdateAdmin;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class updateAdmins
  */
-@WebServlet("/updateAdmins")
 public class updateAdmins extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,15 +28,28 @@ public class updateAdmins extends HttpServlet {
 		System.out.println("Admin Password :" + admin_password);
 		System.out.println("Admin Password Re Entered :" + admin_re_password);
 		
-	
+		// Basic validation
+		if(admin_name == null || admin_name.trim().isEmpty() ||
+		   admin_password == null || admin_password.trim().isEmpty()) {
+			response.sendRedirect("Admin/updateAdmin/UpdateAdmin.jsp?error=missing_fields");
+			return;
+		}
+		
+		if(!admin_password.equals(admin_re_password)) {
+			response.sendRedirect("Admin/updateAdmin/UpdateAdmin.jsp?error=password_mismatch");
+			return;
+		}
+		
 		InsertAdminData iadata = new InsertAdminData(admin_name, admin_password, admin_re_password);
 		
 		int j = iadata.insertData();
 		
 		if(j > 0) {
-			response.sendRedirect("Admin/admin.jsp");
-		}else {
-			response.sendRedirect("Admin/admin.jsp");
+			System.out.println("Admin inserted successfully");
+			response.sendRedirect("Curent_sv?success=admin_added");
+		} else {
+			System.out.println("Failed to insert admin");
+			response.sendRedirect("Admin/updateAdmin/UpdateAdmin.jsp?error=insert_failed");
 		}
 		
 	}

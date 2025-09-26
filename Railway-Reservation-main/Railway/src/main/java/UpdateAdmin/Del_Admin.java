@@ -3,8 +3,6 @@ package UpdateAdmin;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import UpdateTrains.Delete_data;
-
 public class Del_Admin extends DbConnection {
 	
 	int adminId;
@@ -14,27 +12,34 @@ public class Del_Admin extends DbConnection {
 	}
 
 	
-	public int  Del_Admin() {
+	public int deleteAdmin() {
 		
-		System.out.print("Value --" + adminId);
+		System.out.println("Deleting admin with ID: " + adminId);
 		
-		Delete_data d_data = new Delete_data(adminId);
+		Del_Admin d_data = new Del_Admin(adminId);
 		
-		String query = "delete from admins where adi = ? ";
+		String query = "delete from admins where adi = ?";
 		
 		PreparedStatement psd;
+		int result = 0;
 		
 		try {
-			psd= d_data.getConnection().prepareStatement(query);
+			psd = d_data.getConnection().prepareStatement(query);
 			psd.setInt(1, adminId);
-			psd.executeUpdate();
+			result = psd.executeUpdate();
+			
+			System.out.println("Delete result: " + result);
+			
+			psd.close();
+			d_data.getConnection().close();
+			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.err.println("Error deleting admin: " + e.getMessage());
 			e.printStackTrace();
+			return 0;
 		}
 		
-		return 0;
-		
+		return result;
 	}
 	
 	

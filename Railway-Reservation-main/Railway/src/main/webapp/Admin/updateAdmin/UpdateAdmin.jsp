@@ -18,17 +18,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Railway Custom Theme -->
-    <link href="../../css/railway-theme.css" rel="stylesheet">
+    <link href="/Railway/css/railway-theme.css" rel="stylesheet">
 </head>
 <body class="bg-railway-light">
     <!-- Include unified header -->
-    <jsp:include page="../../shared/header.jsp" />
+    <jsp:include page="/shared/header.jsp" />
 
     <div class="container-fluid">
         <div class="row">
             <!-- Include admin sidebar -->
             <div class="col-lg-3 p-0">
-                <jsp:include page="../../shared/sidebar.jsp">
+                <jsp:include page="/shared/sidebar.jsp">
                     <jsp:param name="sidebarTitle" value="Admin Management" />
                 </jsp:include>
             </div>
@@ -245,11 +245,11 @@
     </div>
 
     <!-- Include unified footer -->
-    <jsp:include page="../../shared/footer.jsp" />
+    <jsp:include page="/shared/footer.jsp" />
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../js/railway-app.js"></script>
+    <script src="/Railway/js/railway-app.js"></script>
 
     <!-- Page-specific JavaScript -->
     <script>

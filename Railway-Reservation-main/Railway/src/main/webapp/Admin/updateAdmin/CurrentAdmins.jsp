@@ -19,17 +19,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Railway Custom Theme -->
-    <link href="../../css/railway-theme.css" rel="stylesheet">
+    <link href="/Railway/css/railway-theme.css" rel="stylesheet">
 </head>
 <body class="bg-railway-light">
     <!-- Include unified header -->
-    <jsp:include page="../../shared/header.jsp" />
+    <jsp:include page="/shared/header.jsp" />
 
     <div class="container-fluid">
         <div class="row">
             <!-- Include admin sidebar -->
             <div class="col-lg-3 p-0">
-                <jsp:include page="../../shared/sidebar.jsp">
+                <jsp:include page="/shared/sidebar.jsp">
                     <jsp:param name="sidebarTitle" value="Admin Management" />
                 </jsp:include>
             </div>
@@ -63,7 +63,7 @@
                         </div>
                         
                         <div class="page-actions">
-                            <a href="UpdateAdmin.jsp" class="railway-btn railway-btn-primary">
+                            <a href="/Railway/Admin/updateAdmin/UpdateAdmin.jsp" class="railway-btn railway-btn-primary">
                                 <i class="fas fa-user-plus me-2"></i>Add Administrator
                             </a>
                         </div>
@@ -269,7 +269,7 @@
                                                     <i class="fas fa-users fa-3x text-muted mb-3"></i>
                                                     <h4 class="text-muted">No Administrators Found</h4>
                                                     <p class="text-muted mb-3">There are currently no administrators in the system.</p>
-                                                    <a href="UpdateAdmin.jsp" class="railway-btn railway-btn-primary">
+                                                    <a href="/Railway/Admin/updateAdmin/UpdateAdmin.jsp" class="railway-btn railway-btn-primary">
                                                         <i class="fas fa-user-plus me-2"></i>Add First Administrator
                                                     </a>
                                                 </div>
@@ -310,7 +310,7 @@
                                 <div class="railway-card-body">
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
-                                            <a href="UpdateAdmin.jsp" class="d-block p-3 bg-railway-light rounded text-decoration-none hover-lift">
+                                            <a href="/Railway/Admin/updateAdmin/UpdateAdmin.jsp" class="d-block p-3 bg-railway-light rounded text-decoration-none hover-lift">
                                                 <div class="d-flex align-items-center">
                                                     <i class="fas fa-user-plus fa-2x text-railway-primary me-3"></i>
                                                     <div>
@@ -407,11 +407,11 @@
     </div>
 
     <!-- Include unified footer -->
-    <jsp:include page="../../shared/footer.jsp" />
+    <jsp:include page="/shared/footer.jsp" />
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../js/railway-app.js"></script>
+    <script src="/Railway/js/railway-app.js"></script>
 
     <!-- Page-specific JavaScript -->
     <script>

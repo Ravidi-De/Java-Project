@@ -20,6 +20,7 @@ public class Update_admin_data_class  extends DbConnection {
 		String sql = "update admins set anme=?,apassword=? where adi = ?";
 		
 		PreparedStatement psd;
+		int result = 0;
 		
 		try {
 			psd = uad.getConnection().prepareStatement(sql);
@@ -28,18 +29,23 @@ public class Update_admin_data_class  extends DbConnection {
 			psd.setString(2, password);
 			psd.setInt(3, id);
 			
-			int j = psd.executeUpdate();
+			result = psd.executeUpdate();
 			
-			if(j>0) {
-				System.out.println("Sucessfulll");
-				
+			if(result > 0) {
+				System.out.println("Admin update successful");
+			} else {
+				System.out.println("No admin found with ID: " + id);
 			}
+			
+			psd.close();
+			uad.getConnection().close();
+			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.err.println("Error updating admin data: " + e.getMessage());
 			e.printStackTrace();
+			return 0;
 		}
 		
-		
-		return 0;
+		return result;
 	}
 }
