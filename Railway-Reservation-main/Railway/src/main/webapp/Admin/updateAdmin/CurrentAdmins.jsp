@@ -238,7 +238,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="action-buttons d-flex justify-content-center gap-2">
-                                                        <form action="Update_admin_details.jsp" method="get" class="d-inline">
+                                                        <form action="/Railway/Admin/updateAdmin/Update_admin_details.jsp" method="get" class="d-inline">
                                                             <input type="hidden" value="<%= cur.getUdi() %>" name="adi">
                                                             <input type="hidden" value="<%= cur.getUname() %>" name="aname">
                                                             <input type="hidden" value="<%= cur.getUpassword() %>" name="apss">
