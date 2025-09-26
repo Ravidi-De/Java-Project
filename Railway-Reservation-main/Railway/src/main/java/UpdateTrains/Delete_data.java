@@ -23,16 +23,19 @@ public class Delete_data extends DbConnection {  //using inheritance
 		String query = "delete from trains where tid = ? ";
 		
 		PreparedStatement psd;
+		int result = 0;
 		
 		try {
 			psd= d_data.getConnection().prepareStatement(query);
 			psd.setInt(1, uid);
-			psd.executeUpdate();
+			result = psd.executeUpdate(); // Store the number of affected rows
+			psd.close();
+			d_data.getConnection().close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return 0;
+		return result; // Return the number of deleted rows
 	}
 }
