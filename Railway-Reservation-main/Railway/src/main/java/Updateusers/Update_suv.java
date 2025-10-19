@@ -4,7 +4,6 @@ package Updateusers;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Update_suv
  */
-@WebServlet("/Update_suv")
 public class Update_suv extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

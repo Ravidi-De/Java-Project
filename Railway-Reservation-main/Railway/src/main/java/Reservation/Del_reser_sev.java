@@ -5,7 +5,6 @@ package Reservation;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Del_reser_sev
  */
-@WebServlet("/Del_reser_sev")
 public class Del_reser_sev extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

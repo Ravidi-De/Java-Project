@@ -24,6 +24,11 @@
   </servlet>
   
   <servlet>
+    <servlet-name>Register</servlet-name>
+    <servlet-class>Railway.registration.Register</servlet-class>
+  </servlet>
+  
+  <servlet>
     <servlet-name>Update_admin_data_sev</servlet-name>
     <servlet-class>UpdateAdmin.Update_admin_data_sev</servlet-class>
   </servlet>
@@ -54,6 +59,53 @@
     <servlet-class>UpdateTrains.Deleter_train_sev</servlet-class>
   </servlet>
   
+  <!-- User Management Servlets -->
+  <servlet>
+    <servlet-name>Curent_servlet</servlet-name>
+    <servlet-class>Updateusers.Curent_servlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>AddUser_servlet</servlet-name>
+    <servlet-class>Updateusers.AddUser_servlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>Update_suv</servlet-name>
+    <servlet-class>Updateusers.Update_suv</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>Delete_use_sev</servlet-name>
+    <servlet-class>Updateusers.Delete_use_sev</servlet-class>
+  </servlet>
+  
+  <!-- Reservation Management Servlets -->
+  <servlet>
+    <servlet-name>Train_res</servlet-name>
+    <servlet-class>Reservation.Train_res</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>insertReserve</servlet-name>
+    <servlet-class>Reservation.insertReserve</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>My_res_sv</servlet-name>
+    <servlet-class>Reservation.My_res_sv</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>Update_reservation_sev</servlet-name>
+    <servlet-class>Reservation.Update_reservation_sev</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>Del_reser_sev</servlet-name>
+    <servlet-class>Reservation.Del_reser_sev</servlet-class>
+  </servlet>
+  
   <!-- Servlet Mappings -->
   <servlet-mapping>
     <servlet-name>Curent_sv</servlet-name>
@@ -73,6 +125,11 @@
   <servlet-mapping>
     <servlet-name>LOGINADMIN</servlet-name>
     <url-pattern>/LOGINADMIN</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Register</servlet-name>
+    <url-pattern>/Register</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>
@@ -104,6 +161,53 @@
   <servlet-mapping>
     <servlet-name>Deleter_train_sev</servlet-name>
     <url-pattern>/Deleter_train_sev</url-pattern>
+  </servlet-mapping>
+  
+  <!-- User Management Servlet Mappings -->
+  <servlet-mapping>
+    <servlet-name>Curent_servlet</servlet-name>
+    <url-pattern>/Curent_servlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>AddUser_servlet</servlet-name>
+    <url-pattern>/AddUser_servlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Update_suv</servlet-name>
+    <url-pattern>/Update_suv</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Delete_use_sev</servlet-name>
+    <url-pattern>/Delete_use_sev</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Reservation Management Servlet Mappings -->
+  <servlet-mapping>
+    <servlet-name>Train_res</servlet-name>
+    <url-pattern>/Train_res</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>insertReserve</servlet-name>
+    <url-pattern>/insertReserve</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>My_res_sv</servlet-name>
+    <url-pattern>/My_res_sv</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Update_reservation_sev</servlet-name>
+    <url-pattern>/Update_reservation_sev</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Del_reser_sev</servlet-name>
+    <url-pattern>/Del_reser_sev</url-pattern>
   </servlet-mapping>
   
   <welcome-file-list>
