@@ -10,7 +10,7 @@ public class DbConnection {
 	
 	String url = "jdbc:mysql://localhost:3306/Railway";
 	 String db_uname = "root";
-	 String db_password = "12345678";
+	 String db_password = "1234";
 	 
 	 public Connection getConnection() {
 		 //eception handling
