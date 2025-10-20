@@ -4,7 +4,6 @@ package UpdateTrains;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,27 +11,37 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Deleter_train_sev
  */
-@WebServlet("/Deleter_train_sev")
 public class Deleter_train_sev extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		int trainId =Integer.parseInt( request.getParameter("trid"));
-		System.out.print(trainId);
-		
-		Delete_data delete_data = new Delete_data(trainId);
-		int j = delete_data.deleteData();
-		
-		if(j>0) {
-			response.sendRedirect("Admin/UpdateTrains/updateTrains.jsp");
-		}else {
+		try {
+			int trainId = Integer.parseInt(request.getParameter("trid"));
+			System.out.print("Deleting train with ID: " + trainId);
 			
+			Delete_data delete_data = new Delete_data(trainId);
+			int result = delete_data.deleteData();
+			
+			System.out.print("Delete result: " + result);
+			
+			if(result > 0) {
+				System.out.print("Train deleted successfully");
+				response.sendRedirect("/Railway/Cur_train_sev");
+			} else {
+				System.out.print("Train deletion failed");
+				response.sendRedirect("/Railway/Cur_train_sev?error=delete_failed");
+			}
+		} catch (NumberFormatException e) {
+			System.out.print("Invalid train ID parameter");
+			e.printStackTrace();
+			response.sendRedirect("/Railway/Cur_train_sev?error=invalid_id");
+		} catch (Exception e) {
+			System.out.print("Error during train deletion");
+			e.printStackTrace();
+			response.sendRedirect("/Railway/Cur_train_sev?error=system_error");
 		}
-		response.sendRedirect("Admin/UpdateTrains/updateTrains.jsp");
-		System.out.print(j);
 	}
 
 	

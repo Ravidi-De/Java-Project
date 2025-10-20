@@ -26,7 +26,7 @@ public class Insert_Res extends DbConnection {
 			Insert_Res i = new Insert_Res(name, email, phone, pax_s, from, to);
 			
 			/*query for the insert data*/
-			String query = "Insert into user_reservation(Rname,Remail,Rphone,Rpax,Rfrom,Rto) values(?,?,?,?,?,?)";
+			String query = "INSERT INTO reservation(name,email,phone,n_of_pax,f_rom,t_o) VALUES(?,?,?,?,?,?)";
 			
 			PreparedStatement dmtp;
 			
@@ -42,10 +42,11 @@ public class Insert_Res extends DbConnection {
 			/*execute the query*/
 			int j = dmtp.executeUpdate();
 			
+			System.out.println("Reservation inserted successfully. Rows affected: " + j);
 			
 			return j;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.err.println("Error inserting reservation: " + e.getMessage());
 			e.printStackTrace();
 		}
 		return 0;

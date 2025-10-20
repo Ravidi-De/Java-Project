@@ -24,29 +24,35 @@ public class InsertAdminData extends DbConnection {
 		System.out.println("Admin Password........ :" + Admin_password);
 		System.out.println("Admin Password Re Entered ........:" + Re_password);
 		
-		//create a object 
-		InsertAdminData iad = new InsertAdminData(Admin_name, Admin_password, Re_password);
-		
-		
-			String query = "INSERT INTO admins(anme,apassword) VALUES (?,?)";
+	//create a object 
+	InsertAdminData iad = new InsertAdminData(Admin_name, Admin_password, Re_password);
+	
+	// Generate default email from admin name (remove spaces and make lowercase)
+	String defaultEmail = Admin_name.toLowerCase().replaceAll("\\s+", "") + "@railway.com";
+	
+	String query = "INSERT INTO admins(aname,apassword,aemail) VALUES (?,?,?)";
+	
+	PreparedStatement psd;
+	int result = 0;		try {
+			psd = iad.getConnection().prepareStatement(query);
 			
-			PreparedStatement psd;
+			psd.setString(1, Admin_name);
+			psd.setString(2, Admin_password);
+			psd.setString(3, defaultEmail);
 			
-			try {
-				psd = iad.getConnection().prepareStatement(query);
-				
-				psd.setString(1, Admin_name);
-				psd.setString(2, Admin_password);
-				
-				psd.executeUpdate();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			result = psd.executeUpdate();
+			System.out.println("Insert result: " + result);
 			
+			psd.close();
+			iad.getConnection().close();
+			
+		} catch (SQLException e) {
+			System.err.println("Error inserting admin data: " + e.getMessage());
+			e.printStackTrace();
+			return 0;
+		}
 		
-		
-		return 0;
+		return result;
 	}
 
 }

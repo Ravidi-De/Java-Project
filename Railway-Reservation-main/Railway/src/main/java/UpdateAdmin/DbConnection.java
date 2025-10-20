@@ -8,16 +8,16 @@ import java.sql.SQLException;
 public class DbConnection {
 	String url = "jdbc:mysql://localhost:3306/Railway";
 	String db_uname = "root";
-	String db_password = "Sachin-123";
+	String db_password = "1234";
 	
 	public Connection getConnection() {
 		
 		try {
-			Connection con = DriverManager.getConnection(url,db_uname,db_password);
-			System.out.println("Connection Sucessfull:// UpdateAdmin //");
-			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("Driver loaded : // UpdateAdmin //");
+			
+			Connection con = DriverManager.getConnection(url,db_uname,db_password);
+			System.out.println("Connection Sucessfull:// UpdateAdmin //");
 			
 			return con;
 		} catch (ClassNotFoundException e) {

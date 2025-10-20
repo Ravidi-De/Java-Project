@@ -1,6 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>Railway</display-name>
+  
+  <!-- Servlet Definitions -->
+  <servlet>
+    <servlet-name>Curent_sv</servlet-name>
+    <servlet-class>UpdateAdmin.Curent_sv</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>updateAdmins</servlet-name>
+    <servlet-class>UpdateAdmin.updateAdmins</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>Railway.registration.LoginServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>LOGINADMIN</servlet-name>
+    <servlet-class>Admin.Login.LOGINADMIN</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>Update_admin_data_sev</servlet-name>
+    <servlet-class>UpdateAdmin.Update_admin_data_sev</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>Del_admin_suv</servlet-name>
+    <servlet-class>UpdateAdmin.Del_admin_suv</servlet-class>
+  </servlet>
+  
+  <!-- Train Management Servlets -->
+  <servlet>
+    <servlet-name>Cur_train_sev</servlet-name>
+    <servlet-class>UpdateTrains.Cur_train_sev</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>InsertTrainServlet</servlet-name>
+    <servlet-class>UpdateTrains.InsertTrainServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>Update_trains_sev</servlet-name>
+    <servlet-class>UpdateTrains.Update_trains_sev</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>Deleter_train_sev</servlet-name>
+    <servlet-class>UpdateTrains.Deleter_train_sev</servlet-class>
+  </servlet>
+  
+  <!-- Servlet Mappings -->
+  <servlet-mapping>
+    <servlet-name>Curent_sv</servlet-name>
+    <url-pattern>/Curent_sv</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>updateAdmins</servlet-name>
+    <url-pattern>/updateAdmins</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>LOGINADMIN</servlet-name>
+    <url-pattern>/LOGINADMIN</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Update_admin_data_sev</servlet-name>
+    <url-pattern>/Update_admin_data_sev</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Del_admin_suv</servlet-name>
+    <url-pattern>/Del_admin_suv</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Train Management Servlet Mappings -->
+  <servlet-mapping>
+    <servlet-name>Cur_train_sev</servlet-name>
+    <url-pattern>/Cur_train_sev</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>InsertTrainServlet</servlet-name>
+    <url-pattern>/InsertTrainServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Update_trains_sev</servlet-name>
+    <url-pattern>/Update_trains_sev</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Deleter_train_sev</servlet-name>
+    <url-pattern>/Deleter_train_sev</url-pattern>
+  </servlet-mapping>
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>

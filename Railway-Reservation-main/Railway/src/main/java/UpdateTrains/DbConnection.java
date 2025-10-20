@@ -9,17 +9,17 @@ public class DbConnection {
 	
 	String url = "jdbc:mysql://localhost:3306/Railway";
 	 String db_uname = "root";
-	 String db_password = "Sachin-123";
+	 String db_password = "1234";
 	 
 	 public Connection getConnection() {
 		 
 		 try {
+			 Class.forName("com.mysql.cj.jdbc.Driver");
+			 System.out.println("Driver connection Sucessfull");//only a massage
+			 
 			 //creating a connection object
 			Connection con = DriverManager.getConnection(url,db_uname,db_password);
 			 System.out.println("Database Connection Sucessfull");//only a massage
-			 
-			 Class.forName("com.mysql.cj.jdbc.Driver");
-			 System.out.println("Driver connection Sucessfull");//only a massage
 			 
 			 return con;
 		} catch (ClassNotFoundException e) {
