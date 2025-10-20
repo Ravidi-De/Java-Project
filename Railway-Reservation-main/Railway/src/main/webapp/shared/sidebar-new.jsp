@@ -146,8 +146,8 @@
                     <span class="nav-text">New Reservation</span>
                     <span class="nav-badge badge-primary">Book</span>
                 </a>
-                <a href="<%= contextPath %>/Trains.jsp" 
-                   class="nav-item <%= currentPage.contains("Trains.jsp") ? "active" : "" %>"
+                <a href="<%= contextPath %>/Train_res" 
+                   class="nav-item <%= currentPage.contains("Train_res") || currentPage.contains("Trains.jsp") ? "active" : "" %>"
                    data-tooltip="Search Trains">
                     <i class="fas fa-search nav-icon"></i>
                     <span class="nav-text">Search Trains</span>
@@ -192,7 +192,7 @@
                     <i class="fas fa-home nav-icon"></i>
                     <span class="nav-text">Home</span>
                 </a>
-                <a href="<%= contextPath %>/Train_dao" 
+                <a href="<%= contextPath %>/Train_res" 
                    class="nav-item"
                    data-tooltip="View Trains">
                     <i class="fas fa-train nav-icon"></i>
