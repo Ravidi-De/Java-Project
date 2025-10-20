@@ -25,7 +25,7 @@ public class Update_res_class extends DbConnection{
 		Update_res_class urs = new Update_res_class(id, name, from, to, phone, mail);
 		
 		/*sql query for update user reservation*/
-		String sql = "update user_reservation set Rname = ?,Rfrom=?,Rto=?,Rphone=?,Remail=? where Rid=?";
+		String sql = "UPDATE reservation SET name=?,f_rom=?,t_o=?,phone=?,email=? WHERE res_id=?";
 		/*create a object from the prepared statement*/
 		PreparedStatement psd;
 		

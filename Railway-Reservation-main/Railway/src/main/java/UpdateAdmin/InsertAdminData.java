@@ -24,19 +24,21 @@ public class InsertAdminData extends DbConnection {
 		System.out.println("Admin Password........ :" + Admin_password);
 		System.out.println("Admin Password Re Entered ........:" + Re_password);
 		
-		//create a object 
-		InsertAdminData iad = new InsertAdminData(Admin_name, Admin_password, Re_password);
-		
-		String query = "INSERT INTO admins(anme,apassword) VALUES (?,?)";
-		
-		PreparedStatement psd;
-		int result = 0;
-		
-		try {
+	//create a object 
+	InsertAdminData iad = new InsertAdminData(Admin_name, Admin_password, Re_password);
+	
+	// Generate default email from admin name (remove spaces and make lowercase)
+	String defaultEmail = Admin_name.toLowerCase().replaceAll("\\s+", "") + "@railway.com";
+	
+	String query = "INSERT INTO admins(aname,apassword,aemail) VALUES (?,?,?)";
+	
+	PreparedStatement psd;
+	int result = 0;		try {
 			psd = iad.getConnection().prepareStatement(query);
 			
 			psd.setString(1, Admin_name);
 			psd.setString(2, Admin_password);
+			psd.setString(3, defaultEmail);
 			
 			result = psd.executeUpdate();
 			System.out.println("Insert result: " + result);

@@ -20,7 +20,7 @@ public class Curr_res_dao {
 		
 		try {
 			/*sql query for the select users*/
-			String sql = "select * from user_reservation where Rname = ?";
+			String sql = "SELECT * FROM reservation WHERE name = ?";
 			PreparedStatement stmt;
 			
 			stmt = new_con.getConnection().prepareStatement(sql);
@@ -37,13 +37,13 @@ public class Curr_res_dao {
 				
 				My_current_res res_ve = new My_current_res();
 				
-				res_ve.setRid(res.getInt(1));
-				res_ve.setRname(res.getString(2));
-				res_ve.setRemail(res.getString(3));
-				res_ve.setRphone(res.getString(4));
-				res_ve.setRpax(res.getString(5));
-				res_ve.setRfrom(res.getString(6));
-				res_ve.setRto(res.getString(7));
+				res_ve.setRid(res.getInt("res_id"));
+				res_ve.setRname(res.getString("name"));
+				res_ve.setRemail(res.getString("email"));
+				res_ve.setRphone(res.getString("phone"));
+				res_ve.setRpax(res.getString("n_of_pax"));
+				res_ve.setRfrom(res.getString("f_rom"));
+				res_ve.setRto(res.getString("t_o"));
 				
 				
 				res_all.add(res_ve);

@@ -29,17 +29,15 @@ public class LOGINADMIN extends HttpServlet {
 			//connect the database
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Railway","root","1234");
 			
-			//getting data from the login.jsp
-			String uname = request.getParameter("adminname");
-			String pwd = request.getParameter("adminpassword");
-			
-			System.out.println("Admin login attempt: " + uname);
-			
-			PreparedStatement psd = con.prepareStatement("select anme from admin where anme = ? and apassword = ?");
-			psd.setString(1, uname);
-			psd.setString(2, pwd);
-			
-			ResultSet rs = psd.executeQuery();
+		//getting data from the login.jsp
+		String uname = request.getParameter("adminname");
+		String pwd = request.getParameter("adminpassword");
+		
+		System.out.println("Admin login attempt: " + uname);
+		
+		PreparedStatement psd = con.prepareStatement("select aname from admins where aname = ? and apassword = ?");
+		psd.setString(1, uname);
+		psd.setString(2, pwd);			ResultSet rs = psd.executeQuery();
 			
 			if(rs.next()) {
 				// Authentication successful

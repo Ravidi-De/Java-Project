@@ -16,7 +16,7 @@ public int deleteData() {
 		
 		Del_reservation d_data = new Del_reservation(id);
 		
-		String query = "delete from user_reservation where Rid = ? ";
+		String query = "DELETE FROM reservation WHERE res_id = ?";
 		
 		PreparedStatement psd;
 		

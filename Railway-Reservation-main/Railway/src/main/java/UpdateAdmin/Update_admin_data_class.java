@@ -17,7 +17,7 @@ public class Update_admin_data_class  extends DbConnection {
 	public int UpdateAdminData() {
 		Update_admin_data_class uad = new Update_admin_data_class(id, name, password);
 		
-		String sql = "update admins set anme=?,apassword=? where adi = ?";
+		String sql = "update admins set aname=?,apassword=? where adi = ?";
 		
 		PreparedStatement psd;
 		int result = 0;
