@@ -15,6 +15,11 @@
 %>
 
 <div class="railway-sidebar" id="railwaySidebar">
+    <!-- Sidebar Toggle Button (Desktop) -->
+    <button class="sidebar-toggle-btn d-none d-lg-block" id="sidebarToggleDesktop" title="Toggle Sidebar">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    
     <!-- Sidebar Header -->
     <div class="railway-sidebar-header">
         <h5 class="railway-card-title d-flex align-items-center">
@@ -49,8 +54,8 @@
                     <small class="text-muted fw-bold">USER MANAGEMENT</small>
                 </li>
                 <li>
-                    <a href="<%= contextPath %>/Current_users" 
-                       class="<%= currentPage.contains("Current_users") ? "active" : "" %>">
+                    <a href="<%= contextPath %>/Curent_servlet" 
+                       class="<%= currentPage.contains("CurrentUsers") || currentPage.contains("Curent_servlet") ? "active" : "" %>">
                         <i class="fas fa-users"></i>
                         <span>Manage Users</span>
                         <small class="badge bg-secondary ms-auto">Users</small>
@@ -58,7 +63,7 @@
                 </li>
                 <li>
                     <a href="<%= contextPath %>/Curent_sv" 
-                       class="<%= currentPage.contains("Curent_sv") ? "active" : "" %>">
+                       class="<%= currentPage.contains("Curent_sv") || currentPage.contains("admin.jsp") && currentPage.contains("UpdateAdmin") ? "active" : "" %>">
                         <i class="fas fa-user-shield"></i>
                         <span>Manage Admins</span>
                         <small class="badge bg-warning ms-auto">Admin</small>
@@ -71,15 +76,15 @@
                 </li>
                 <li>
                     <a href="<%= contextPath %>/Cur_train_sev" 
-                       class="<%= currentPage.contains("Cur_train_sev") ? "active" : "" %>">
+                       class="<%= currentPage.contains("Currenttrains") || currentPage.contains("Cur_train_sev") ? "active" : "" %>">
                         <i class="fas fa-train"></i>
                         <span>Manage Trains</span>
                         <small class="badge bg-info ms-auto">Trains</small>
                     </a>
                 </li>
                 <li>
-                    <a href="<%= contextPath %>/Train_dao" 
-                       class="<%= currentPage.contains("Train_dao") ? "active" : "" %>">
+                    <a href="<%= contextPath %>/Train_res" 
+                       class="<%= currentPage.contains("Train_res") || currentPage.contains("Trains.jsp") ? "active" : "" %>">
                         <i class="fas fa-list"></i>
                         <span>View All Trains</span>
                     </a>
@@ -330,13 +335,60 @@
 </style>
 
 <script>
-// Sidebar mobile functionality
+// Sidebar functionality
 document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.getElementById('railwaySidebar');
-    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebarToggle = document.getElementById('sidebarToggle'); // Mobile
+    const sidebarToggleDesktop = document.getElementById('sidebarToggleDesktop'); // Desktop
     const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const mainContent = document.querySelector('.col-lg-9');
     
-    // Toggle sidebar on mobile
+    // Check if sidebar state is saved in localStorage
+    const sidebarCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+    
+    // Apply saved state on page load (desktop only)
+    if (window.innerWidth >= 992 && sidebarCollapsed) {
+        sidebar.classList.add('collapsed');
+        document.body.classList.add('sidebar-collapsed');
+        if (mainContent) {
+            mainContent.classList.remove('col-lg-9');
+            mainContent.classList.add('col-lg-11');
+        }
+        if (sidebarToggleDesktop) {
+            sidebarToggleDesktop.querySelector('i').classList.remove('fa-chevron-left');
+            sidebarToggleDesktop.querySelector('i').classList.add('fa-chevron-right');
+        }
+    }
+    
+    // Desktop toggle functionality
+    if (sidebarToggleDesktop) {
+        sidebarToggleDesktop.addEventListener('click', function() {
+            const isCollapsed = sidebar.classList.toggle('collapsed');
+            document.body.classList.toggle('sidebar-collapsed');
+            const icon = this.querySelector('i');
+            
+            // Toggle icon
+            if (isCollapsed) {
+                icon.classList.remove('fa-chevron-left');
+                icon.classList.add('fa-chevron-right');
+                if (mainContent) {
+                    mainContent.classList.remove('col-lg-9');
+                    mainContent.classList.add('col-lg-11');
+                }
+                localStorage.setItem('sidebarCollapsed', 'true');
+            } else {
+                icon.classList.remove('fa-chevron-right');
+                icon.classList.add('fa-chevron-left');
+                if (mainContent) {
+                    mainContent.classList.remove('col-lg-11');
+                    mainContent.classList.add('col-lg-9');
+                }
+                localStorage.setItem('sidebarCollapsed', 'false');
+            }
+        });
+    }
+    
+    // Mobile toggle functionality
     if (sidebarToggle) {
         sidebarToggle.addEventListener('click', function() {
             sidebar.classList.toggle('show');
@@ -344,7 +396,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Close sidebar when clicking overlay
+    // Close sidebar when clicking overlay (mobile)
     if (sidebarOverlay) {
         sidebarOverlay.addEventListener('click', function() {
             sidebar.classList.remove('show');
@@ -368,7 +420,42 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth >= 992) {
             sidebar.classList.remove('show');
             sidebarOverlay.classList.remove('show');
+            // Restore collapsed state from localStorage
+            const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+            if (isCollapsed) {
+                sidebar.classList.add('collapsed');
+                document.body.classList.add('sidebar-collapsed');
+                if (mainContent) {
+                    mainContent.classList.remove('col-lg-9');
+                    mainContent.classList.add('col-lg-11');
+                }
+            } else {
+                document.body.classList.remove('sidebar-collapsed');
+            }
+        } else {
+            // Remove collapsed class on mobile
+            sidebar.classList.remove('collapsed');
+            document.body.classList.remove('sidebar-collapsed');
+            if (mainContent) {
+                mainContent.classList.remove('col-lg-11');
+                mainContent.classList.add('col-lg-9');
+            }
         }
     });
+    
+    // Add tooltip functionality for collapsed sidebar
+    if (window.innerWidth >= 992) {
+        const navLinks = sidebar.querySelectorAll('.railway-sidebar-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                if (sidebar.classList.contains('collapsed')) {
+                    const text = this.querySelector('span')?.textContent;
+                    if (text) {
+                        this.setAttribute('title', text);
+                    }
+                }
+            });
+        });
+    }
 });
 </script>

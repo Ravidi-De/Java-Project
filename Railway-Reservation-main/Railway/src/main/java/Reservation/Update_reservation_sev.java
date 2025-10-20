@@ -26,17 +26,21 @@ public class Update_reservation_sev extends HttpServlet {
 		String  phone = 	request.getParameter("phone");
 		String  mail = 	request.getParameter("email");
 		
+		System.out.println("Updating reservation ID: " + id);
+		System.out.println("Name: " + name + ", From: " + from + ", To: " + to);
+		
 		Update_res_class ups = new Update_res_class(id, name, from, to, phone, mail);
 		int j = ups.UpdateData();
 		
 		
 		/*if the code run without any error the page redirect to the need location*/
-		if(j>0) {
+		if(j > 0) {
+			System.out.println("Reservation updated successfully!");
+			response.sendRedirect("Reserve/reserve.jsp");
+		} else {
+			System.err.println("Failed to update reservation!");
 			response.sendRedirect("Reserve/reserve.jsp");
 		}
-		
-		
-		response.sendRedirect("Reserve/reserve.jsp");
 	}
 
 	

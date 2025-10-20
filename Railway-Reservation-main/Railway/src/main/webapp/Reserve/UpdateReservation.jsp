@@ -4,9 +4,9 @@
     
     	String id = request.getParameter("id");
 		String name = request.getParameter("name");
-    	String from = request.getParameter("id");
+    	String from = request.getParameter("from");
     	String to = request.getParameter("to");
-    	String phone = request.getParameter("from");
+    	String phone = request.getParameter("phone");
     	String mail = request.getParameter("mail");
     
     
