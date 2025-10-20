@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class DbConnection {
 	String url = "jdbc:mysql://localhost:3306/Railway";
 	String db_uname = "root";
-	String db_password = "1234";
+	String db_password = "12345678";
 	
 	public Connection getConnection() {
 		
